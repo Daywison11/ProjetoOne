@@ -19,7 +19,7 @@ Route::get('/posts/{id}', [PostController::class, 'show'])->name('posts.show');
 
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 
-Route::get('/posts', [PostController::class, 'index'])->name('post.index') ;
+Route::get('/posts', [PostController::class, 'index'])->name('post.index')->middleware(['auth']) ;
 
 
 Route::get('/dashboard', function () {
