@@ -1,9 +1,12 @@
-<h1>cadastrar novo post</h1>
+@extends('admin.layouts.app')
+@section('title' , 'cadastro de post - ')
 
-<form action="{{ route('posts.store')}}" method="post">
-    <input type="text" name="_token" value=" {{ csrf_token() }} ">
-    <label for="title">titulo:</label>
-    <input type="text" name="title" id="title">
-    <textarea name="content" id="content" cols="30" rows="4" placeholder="conteudo"></textarea>
-    <input type="submit" value="enviar">
-</form>
+@section('content')
+    <h1>Cadastrar Novo Post</h1>
+
+    <form action="{{ route('posts.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        @include('admin.posts.partials.form')
+    </form>
+
+@endsection
